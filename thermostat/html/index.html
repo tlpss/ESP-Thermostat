@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 2vw 8vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4vw;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #085c4e;} /* Green */
+.button2 {background-color: #65819b;} /* Blue */
+
+p{
+    font-size: 4vw;
+}
+b {
+    font-size: 4vw;
+}
+
+h1{
+    font-size: 6vw;
+}
+
+h3 {
+    font-size: 5vw;
+}
+
+
+
+</style>
+</head>
+<body>
+    <center>
+        <h1> Thermostat WebServer </h1>
+        <h3> current temperature = {{T}}</h3>
+        <br>
+        <a href="/switch_thermostat_state">
+            <button class="button button1">
+                Thermostat {{State}}
+            </button>
+        </a>
+
+        <!-- Following should only be displayed if thermostat is ON-->
+
+        <h3> heater is {{is_heating?}}</h3>
+        <a href="/decrease_target_temperature">
+            <button class="button button1">
+                -
+            </button>
+        </a>
+        <b> {{T_d}} </b>
+        <a href="/increase_target_temperature">
+            <button class="button button1">
+                +
+            </button>
+        </a>        
+        <p>lower threshold = {{T_L}} <br> upper threshold = {{T_U}}</p>
+
+    </center>
+</body>
+</html>

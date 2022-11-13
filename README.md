@@ -1,8 +1,7 @@
 # ESP-Thermostat
-A simple bang-bang + hysteresis thermostat with a minimal web interface for an ESP8266.
 
-This repo implements a standalone bang-bang thermostat for controlling room temperature with a central heating system. The thermostat actuates a relais
-that operates the boiler. The thermostat has a minimal web interface for convenience.
+This repo implements a standalone bang-bang thermostat for controlling room temperature for a central heating system. The thermostat actuates a relais
+that operates the boiler. The thermostat has a minimal web interface for convenience and uses configurable hysteresis intervals to reduce the number of boiler triggers.
 
 
 ## Hardware
@@ -31,13 +30,17 @@ To interact with the Thermostat a minimal web interface is available. With this 
 To find the Thermostat's IP address you should use the serial monitor after uploading the program, the IP address will be printed.
 
 You can see the interface below:
-![signal-2022-11-12-233022](https://user-images.githubusercontent.com/37955681/201497160-c27ea03b-ffab-42b9-8bc0-0fa3243ec31f.jpeg)
+
+![signal-2022-11-12-233022 (1)](https://user-images.githubusercontent.com/37955681/201521819-dd708d33-c06b-4e65-b0bc-bcdd457535bb.jpeg)
+
 
 Note that there is no authentication for the web interface, so you should not expose it outside of your local network.
 
-## Some notes 
+## Note on power efficiency
 - This Thermostat requires an 5V power supply and is far from power-efficient due to the constant polling of the webserver, best to keep it plugged in.
-- MQQT
+If you want to make this more efficient, you could use an IoT protocol such as [MQTT](https://mqtt.org/) that e.g. pulls user input every 10s instead of creating a webserver that is constantly polling for client connections. Note however that in that case you need a seperate device that creates the UI (a raspberry Pi for example) that functions as MQTT broker and that runs a webserver. On this device however, you can just use standard web development frameworks instead of having to hack something on an embedded device in C++.
+
 
 ## Resources
-TODO
+- [esp webserver tutorial](https://tttapa.github.io/ESP8266/Chap10%20-%20Simple%20Web%20Server.html)
+- [temperature sensor library](https://github.com/matmunk/DS18B20)

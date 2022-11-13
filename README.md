@@ -11,7 +11,7 @@ that operates the boiler. The thermostat has a minimal web interface for conveni
 - [SRD-5VDC-SL-C](https://www.circuitbasics.com/wp-content/uploads/2015/11/SRD-05VDC-SL-C-Datasheet.pdf) 5V Relay.
 - some resistors, cables and breadboard or prototyping board. 
 
-### Layout
+### Wiring
 - plug a 5V adapter to the NodeMCU (keep in mind that the operating voltage is 3.3V!)
 - connect relay to the boiler circuit (ues the normal open and comm pins).
 - connect the relay to the D3 pin of the NodeMCU, and the V_in of the NodeMCU. Do not use a 3.3V pin as this will result in faulty behaviour of the relay.
@@ -19,13 +19,13 @@ that operates the boiler. The thermostat has a minimal web interface for conveni
 You can see an example layout (with additional LED) below:
 ![IMG20221112232500](https://user-images.githubusercontent.com/37955681/201497066-e70f6cb0-708e-4670-8a83-87853e2a5715.jpg)
 
-## Development
+## Software
 - install Platformio for vscode (instructions [here](https://platformio.org/install/ide?install=vscode))
 - install the [Espressif Platform](https://docs.platformio.org/en/stable/platforms/espressif8266.html#platform-espressif8266) 
 - clone this repo and open the platformio project
 - upload the code after connecting the ESP with your pc.
 
-## Web Interface
+### Web Interface
 To interact with the Thermostat a minimal web interface is available. With this interface you can read the current temperature, turn the thermostat on/off and set the desired temperature.
 To find the Thermostat's IP address you should use the serial monitor after uploading the program, the IP address will be printed.
 
